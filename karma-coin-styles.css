@@ -1,0 +1,540 @@
+/* Karma Coin Payment System Styles */
+
+/* Karma Coin Balance Display */
+.karma-balance {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.3);
+}
+
+.karma-balance-icon {
+  font-size: 1.25rem;
+}
+
+.karma-balance-amount {
+  font-weight: 700;
+}
+
+/* Karma Shop Button */
+.karma-shop-btn {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.karma-shop-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4);
+}
+
+/* Payment Modal */
+.payment-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.payment-modal.active {
+  display: flex;
+}
+
+.payment-content {
+  background: #fff;
+  border-radius: 20px;
+  padding: 0;
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+body.dark-mode .payment-content {
+  background: #2d1b4e;
+}
+
+.payment-header {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: #fff;
+  padding: 1.5rem;
+  border-radius: 20px 20px 0 0;
+  text-align: center;
+  position: relative;
+}
+
+.payment-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: #fff;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.payment-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.payment-subtitle {
+  font-size: 1rem;
+  opacity: 0.9;
+  margin: 0;
+}
+
+.payment-body {
+  padding: 2rem;
+}
+
+/* Current Balance Display */
+.current-balance {
+  text-align: center;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(217, 119, 6, 0.1));
+  border-radius: 12px;
+  margin-bottom: 2rem;
+}
+
+body.dark-mode .current-balance {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(217, 119, 6, 0.2));
+}
+
+.balance-label {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+body.dark-mode .balance-label {
+  color: #b5a4d4;
+}
+
+.balance-amount {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #f59e0b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+/* Karma Coin Packages */
+.karma-packages {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.karma-package {
+  background: #fff;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+body.dark-mode .karma-package {
+  background: #4b366f;
+  border-color: #6b21a8;
+}
+
+.karma-package:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(245, 158, 11, 0.2);
+  border-color: #f59e0b;
+}
+
+.karma-package.popular {
+  border-color: #f59e0b;
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.05), rgba(217, 119, 6, 0.05));
+}
+
+body.dark-mode .karma-package.popular {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(217, 119, 6, 0.1));
+}
+
+.package-badge {
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: #fff;
+  padding: 0.25rem 0.75rem;
+  border-radius: 0 12px 0 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.package-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.package-amount {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #f59e0b;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.package-price {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 1rem;
+}
+
+body.dark-mode .package-price {
+  color: #e2d6ff;
+}
+
+.package-description {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+body.dark-mode .package-description {
+  color: #b5a4d4;
+}
+
+.package-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+  text-align: left;
+}
+
+.package-features li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: #374151;
+  margin-bottom: 0.5rem;
+}
+
+body.dark-mode .package-features li {
+  color: #e2d6ff;
+}
+
+.package-features li::before {
+  content: '✓';
+  color: #22c55e;
+  font-weight: 600;
+}
+
+.buy-package-btn {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  font-size: 1rem;
+}
+
+.buy-package-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4);
+}
+
+/* Payment Methods */
+.payment-methods {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+body.dark-mode .payment-methods {
+  border-top-color: #4b366f;
+}
+
+.payment-methods h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+body.dark-mode .payment-methods h3 {
+  color: #e2d6ff;
+}
+
+.payment-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.payment-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: #fff;
+}
+
+body.dark-mode .payment-option {
+  background: #4b366f;
+  border-color: #6b21a8;
+  color: #e2d6ff;
+}
+
+.payment-option:hover {
+  border-color: #f59e0b;
+  transform: translateY(-2px);
+}
+
+.payment-option-icon {
+  font-size: 2rem;
+}
+
+.payment-option-name {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+body.dark-mode .payment-option-name {
+  color: #e2d6ff;
+}
+
+/* Chat Cost Display */
+.chat-cost-info {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(217, 119, 6, 0.1));
+  border-left: 4px solid #f59e0b;
+  padding: 1rem;
+  border-radius: 0 8px 8px 0;
+  margin-bottom: 1rem;
+  display: none;
+}
+
+body.dark-mode .chat-cost-info {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(217, 119, 6, 0.2));
+}
+
+.chat-cost-info.show {
+  display: block;
+}
+
+.cost-title {
+  font-weight: 600;
+  color: #f59e0b;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cost-details {
+  font-size: 0.875rem;
+  color: #6b7280;
+  line-height: 1.5;
+}
+
+body.dark-mode .cost-details {
+  color: #b5a4d4;
+}
+
+/* Insufficient Funds Warning */
+.insufficient-funds {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(220, 38, 38, 0.1));
+  border-left: 4px solid #ef4444;
+  padding: 1rem;
+  border-radius: 0 8px 8px 0;
+  margin-bottom: 1rem;
+  display: none;
+}
+
+body.dark-mode .insufficient-funds {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(220, 38, 38, 0.2));
+}
+
+.insufficient-funds.show {
+  display: block;
+}
+
+.insufficient-title {
+  font-weight: 600;
+  color: #ef4444;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.insufficient-message {
+  font-size: 0.875rem;
+  color: #6b7280;
+  line-height: 1.5;
+}
+
+body.dark-mode .insufficient-message {
+  color: #b5a4d4;
+}
+
+/* Success Animation */
+.purchase-success {
+  text-align: center;
+  padding: 2rem;
+}
+
+.success-icon {
+  font-size: 4rem;
+  color: #22c55e;
+  margin-bottom: 1rem;
+  animation: successPulse 0.6s ease-out;
+}
+
+.success-message {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #22c55e;
+  margin-bottom: 0.5rem;
+}
+
+.success-details {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+body.dark-mode .success-details {
+  color: #b5a4d4;
+}
+
+/* Karma Coin Animations */
+@keyframes successPulse {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes coinFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.karma-balance-icon {
+  animation: coinFloat 3s ease-in-out infinite;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .payment-content {
+    width: 95%;
+    margin: 1rem;
+  }
+  
+  .karma-packages {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .payment-options {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .balance-amount {
+    font-size: 2rem;
+  }
+  
+  .package-amount {
+    font-size: 1.75rem;
+  }
+  
+  .karma-balance {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .payment-header {
+    padding: 1rem;
+  }
+  
+  .payment-body {
+    padding: 1rem;
+  }
+  
+  .karma-packages {
+    gap: 0.75rem;
+  }
+  
+  .karma-package {
+    padding: 1rem;
+  }
+  
+  .payment-options {
+    grid-template-columns: 1fr;
+  }
+}

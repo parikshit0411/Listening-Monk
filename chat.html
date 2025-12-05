@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat with Monk – Listening Monk</title>
+  <meta name="description" content="Real-time chat and voice calls with trained listeners on Listening Monk.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="chat-styles.css">
+  <link rel="stylesheet" href="karma-coin-styles.css">
+  <script src="script.js" defer></script>
+  <script src="karma-coin.js" defer></script>
+  <script src="chat.js" defer></script>
+</head>
+<body>
+  <!-- Skip Link -->
+  <a href="#chatContainer" class="skip-link">Skip to chat</a>
+
+  <!-- Theme Toggle -->
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle between light and dark theme">
+    <div class="theme-toggle-track">
+      <div class="theme-toggle-thumb">
+        <span class="sun-icon">☀️</span>
+        <span class="moon-icon">🌙</span>
+      </div>
+    </div>
+  </button>
+
+  <!-- Main Chat Container -->
+  <div class="chat-container" id="chatContainer">
+    <!-- Chat Header -->
+    <header class="chat-header">
+      <div class="chat-header-content">
+        <div class="logo">
+          <div class="logo-icon">🧘‍♂️</div>
+          <div class="logo-content">
+            <span class="logo-text">Listening Monk</span>
+            <span class="logo-subtitle">Your safe space</span>
+          </div>
+        </div>
+        <div class="chat-header-actions">
+          <nav class="chat-nav">
+            <a href="index.html" class="chat-nav-link">Home</a>
+            <a href="about.html" class="chat-nav-link">About</a>
+            <a href="buy-coin.html" class="chat-nav-link">Buy Coins</a>
+            <a href="login.html" class="chat-nav-link">Login</a>
+          </nav>
+          <div class="karma-balance" id="karmaBalance">
+            <span class="karma-balance-icon">🪙</span>
+            <span class="karma-balance-amount">100</span>
+          </div>
+          <button class="karma-shop-btn" id="karmaShopBtn">
+            <span class="karma-balance-icon">🪙</span>
+            <span>Buy Coins</span>
+          </button>
+          <button class="btn btn--secondary btn--sm" id="selectMonkBtn">
+            <span>🧘‍♂️</span>
+            <span>Select Monk</span>
+          </button>
+          <button class="btn btn--secondary btn--sm" id="endSessionBtn">
+            <span>👋</span>
+            <span>End Session</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Chat Main Content -->
+    <div class="chat-main">
+      <!-- Monk Selection Sidebar -->
+      <aside class="monk-sidebar" id="monkSidebar">
+        <div class="sidebar-header">
+          <h3>Available Monks</h3>
+          <button class="close-sidebar" id="closeSidebarBtn">×</button>
+        </div>
+        <div class="monks-list" id="monksList">
+          <!-- Monks will be dynamically loaded here -->
+        </div>
+      </aside>
+
+      <!-- Chat Interface -->
+      <main class="chat-interface">
+        <!-- Current Monk Info -->
+        <div class="current-monk-info" id="currentMonkInfo">
+          <div class="monk-avatar">
+            <div class="avatar-placeholder">🧘‍♂️</div>
+            <div class="status-indicator online"></div>
+          </div>
+          <div class="monk-details">
+            <h4 class="monk-name">Select a Monk</h4>
+            <p class="monk-status">Choose a monk to start your conversation</p>
+          </div>
+          <div class="monk-actions">
+            <button class="action-btn" id="voiceCallBtn" disabled>
+              <span class="btn-icon">📞</span>
+              <span>Voice Call</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Messages Area -->
+        <div class="messages-container" id="messagesContainer">
+          <!-- Cost Information -->
+          <div class="chat-cost-info" id="chatCostInfo">
+            <div class="cost-title">
+              <span class="karma-balance-icon">🪙</span>
+              Chat Cost
+            </div>
+            <div class="cost-details">
+              5 Karma Coins per minute<br>
+              Current session cost: <span id="sessionCost">0</span> Karma Coins
+            </div>
+          </div>
+          
+          <!-- Insufficient Funds Warning -->
+          <div class="insufficient-funds" id="insufficientFunds">
+            <div class="insufficient-title">
+              <span>⚠️</span>
+              Insufficient Karma Coins
+            </div>
+            <div class="insufficient-message">
+              You need more Karma Coins to continue this session.
+            </div>
+          </div>
+          
+          <div class="messages-list" id="messagesList">
+            <div class="welcome-message">
+              <div class="welcome-icon">🙏</div>
+              <h3>Welcome to your safe space</h3>
+              <p>Select a monk from the sidebar to start your conversation. Remember, all conversations are completely anonymous and confidential.</p>
+              <div style="margin-top: 1rem; padding: 1rem; background: rgba(245, 158, 11, 0.1); border-radius: 8px; border-left: 4px solid #f59e0b;">
+                <div style="font-weight: 600; color: #f59e0b; margin-bottom: 0.5rem;">💡 Pricing Information</div>
+                <div style="font-size: 0.875rem; color: #6b7280;">• Chat: 5 Karma Coins per minute<br>• Voice Call: 10 Karma Coins per minute<br>• You start with 100 free Karma Coins!</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Message Input Area -->
+        <div class="message-input-area" id="messageInputArea">
+          <div class="input-container">
+            <button class="emoji-btn" id="emojiBtn" aria-label="Add emoji">😊</button>
+            <input 
+              type="text" 
+              id="messageInput" 
+              placeholder="Type your message..." 
+              disabled
+              aria-label="Message input"
+            >
+            <button class="attach-btn" id="attachBtn" aria-label="Attach file">📎</button>
+            <button class="send-btn" id="sendBtn" disabled aria-label="Send message">
+              <span>→</span>
+            </button>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Audio Call Modal -->
+  <div class="call-modal" id="callModal">
+    <div class="call-content">
+      <div class="call-header">
+        <h3>Voice Call with <span id="callMonkName">Monk</span></h3>
+        <button class="close-call" id="closeCallBtn">×</button>
+      </div>
+      <div class="call-interface">
+        <div class="call-avatar">
+          <div class="avatar-large">🧘‍♂️</div>
+          <div class="call-status" id="callStatus">Connecting...</div>
+        </div>
+        <div class="call-controls">
+          <button class="call-control-btn mute-btn" id="muteBtn">
+            <span class="icon">🎤</span>
+            <span class="label">Mute</span>
+          </button>
+          <button class="call-control-btn end-call-btn" id="endCallBtn">
+            <span class="icon">📞</span>
+            <span class="label">End Call</span>
+          </button>
+          <button class="call-control-btn speaker-btn" id="speakerBtn">
+            <span class="icon">🔊</span>
+            <span class="label">Speaker</span>
+          </button>
+        </div>
+        <div class="call-duration" id="callDuration">00:00</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Video Call Modal -->
+  <div class="video-call-modal" id="videoCallModal">
+    <div class="video-call-content">
+      <div class="video-streams">
+        <video id="localVideo" autoplay muted playsinline class="local-video"></video>
+        <video id="remoteVideo" autoplay playsinline class="remote-video"></video>
+      </div>
+      <div class="video-call-controls">
+        <button class="video-control-btn" id="toggleVideoBtn">
+          <span class="icon">📹</span>
+        </button>
+        <button class="video-control-btn" id="toggleAudioBtn">
+          <span class="icon">🎤</span>
+        </button>
+        <button class="video-control-btn end-video-call-btn" id="endVideoCallBtn">
+          <span class="icon">📞</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Notification Toast -->
+  <div class="notification-toast" id="notificationToast">
+    <div class="toast-content">
+      <span class="toast-icon">ℹ️</span>
+      <span class="toast-message"></span>
+    </div>
+  </div>
+
+  <!-- Audio elements for sounds -->
+  <audio id="messageSound" preload="auto">
+    <source src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmQdBjiM0vLNfC4FJHfH8N2QQAoTXbTo7qpVFApGnt/yvmQdBjiM0vPNfS4FJHfH8N2QQAoUXrTp66hVFApGn+DyvmQdBjmM0vLNfS4FJHfH8N2QQAoUXrTp66hVFApGnt/yvmQdBjiM0vLMfSwFJHfH8N2QQAoTXbTo7qpVFApGnuDyvmQdBjiM0vLMfS0FJHfH8N2QQAoTXbTo7qpVFApGnt/yv2QdBjiK0fLNfS0FJXbH8N2QQQoTXbTo7qpVFApFnt/yv2MdBjiM0fPNfS0GJXfH8N2QQAoTXrTp76lUFAlGnt/yv2MdBjmM0fPNfS0GJHfH8N2QQAoTXrTp66hVFApGnuDyvmMdBjmM0fPOfi0GJHfH8N6QQAkSXbTp66lUFAlGnt/xwGMdBjmL0fLOfS0FJXfH8N+PQAkSXbTp66lUFAlFnd/xwGMdBjmL0fPOfi0FJXfH8N6QQAkTXrTo66lVFAo=" type="audio/wav">
+  </audio>
+  
+  <audio id="callSound" preload="auto">
+    <source src="data:audio/wav;base64,UklGRmQEAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAEAAB4nG2QQWrDMBBF7yfcQBvLUuzExMTANosGWpLSDkMDhXQ3d3qAb4Zr3ZkgWH9z5w7K0v8JgJ1sP+1uGCgAIMDBgwNjgW3JmQo6G8tGAFXz7pK/uNQvN8h7FgAAAA==" type="audio/wav">
+  </audio>
+</body>
+</html>

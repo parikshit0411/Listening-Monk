@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Purchase Karma Coins to support listeners and get premium features on Listening Monk">
+    <title>Buy Karma Coins - Listening Monk</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Stripe.js -->
+    <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+    <!-- Skip Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" aria-label="Toggle dark mode">
+        <div class="theme-toggle-track">
+            <div class="theme-toggle-thumb">
+                <i class="fas fa-sun sun-icon" style="font-size: 12px;"></i>
+                <i class="fas fa-moon moon-icon" style="font-size: 12px;"></i>
+            </div>
+        </div>
+    </button>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">🧘‍♂️</div>
+                    <div class="logo-content">
+                        <span class="logo-text">Listening Monk</span>
+                        <span class="logo-subtitle">Your safe space</span>
+                    </div>
+                </a>
+                
+                <nav class="nav">
+                    <ul class="nav-list">
+                        <li><a href="index.html" class="nav-link">Home</a></li>
+                        <li><a href="listeners.html" class="nav-link">Find Listeners</a></li>
+                        <li><a href="buy-coin.html" class="nav-link" aria-current="page">Buy Coins</a></li>
+                        <li><a href="auth.html" class="nav-link">Join</a></li>
+                    </ul>
+                    
+                    <button class="nav-toggle" aria-label="Toggle navigation">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Buy Coins Hero -->
+        <section class="buy-hero">
+            <div class="container">
+                <div class="buy-hero-content">
+                    <div class="buy-hero-text">
+                        <h1 class="buy-hero-title">
+                            Purchase <span class="text-gradient">Karma Coins</span>
+                        </h1>
+                        <p class="buy-hero-subtitle">
+                            Support compassionate listeners and unlock premium features with our secure coin packages
+                        </p>
+                        
+                        <div class="trust-indicators">
+                            <div class="trust-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Secure Payment</span>
+                            </div>
+                            <div class="trust-item">
+                                <i class="fas fa-lock"></i>
+                                <span>SSL Encrypted</span>
+                            </div>
+                            <div class="trust-item">
+                                <i class="fas fa-undo"></i>
+                                <span>Money Back Guarantee</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="buy-hero-visual">
+                        <div class="coin-animation">
+                            <div class="floating-coin coin-1">
+                                <i class="fas fa-coins"></i>
+                            </div>
+                            <div class="floating-coin coin-2">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <div class="floating-coin coin-3">
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Purchase Form Section -->
+        <section class="purchase-section">
+            <div class="container">
+                <div class="purchase-layout">
+                    <!-- Package Selection -->
+                    <div class="package-selection">
+                        <h2>Choose Your Package</h2>
+                        
+                        <div class="coin-packages">
+                            <div class="package-card" data-package="starter" data-price="999" data-coins="100">
+                                <div class="package-icon">
+                                    <i class="fas fa-seedling"></i>
+                                </div>
+                                <h3 class="package-title">Starter Pack</h3>
+                                <div class="package-coins">100 Coins</div>
+                                <div class="package-price">$9.99</div>
+                                <p class="package-description">Perfect for trying out our platform</p>
+                            </div>
+
+                            <div class="package-card popular" data-package="popular" data-price="1999" data-coins="250">
+                                <div class="package-badge">Most Popular</div>
+                                <div class="package-icon">
+                                    <i class="fas fa-fire"></i>
+                                </div>
+                                <h3 class="package-title">Popular Pack</h3>
+                                <div class="package-coins">250 Coins</div>
+                                <div class="package-price">$19.99</div>
+                                <div class="package-savings">Save 20%</div>
+                                <p class="package-description">Great value for regular users</p>
+                            </div>
+
+                            <div class="package-card" data-package="premium" data-price="3999" data-coins="600">
+                                <div class="package-icon">
+                                    <i class="fas fa-crown"></i>
+                                </div>
+                                <h3 class="package-title">Premium Pack</h3>
+                                <div class="package-coins">600 Coins</div>
+                                <div class="package-price">$39.99</div>
+                                <div class="package-savings">Save 33%</div>
+                                <p class="package-description">Maximum value and savings</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payment Form -->
+                    <div class="payment-section">
+                        <div class="payment-card">
+                            <h2>Payment Details</h2>
+                            
+                            <!-- Order Summary -->
+                            <div class="order-summary">
+                                <h3>Order Summary</h3>
+                                <div class="summary-item">
+                                    <span class="package-name">Please select a package</span>
+                                    <span class="package-total">$0.00</span>
+                                </div>
+                                <div class="summary-divider"></div>
+                                <div class="summary-total">
+                                    <span>Total</span>
+                                    <span class="total-amount">$0.00</span>
+                                </div>
+                            </div>
+
+                            <!-- Payment Form -->
+                            <form id="payment-form" class="payment-form">
+                                <div class="form-group">
+                                    <label for="email">Email Address</label>
+                                    <input type="email" id="email" name="email" required placeholder="your@email.com">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="card-element">Card Information</label>
+                                    <div id="card-element" class="card-element">
+                                        <!-- Stripe Elements will mount here -->
+                                    </div>
+                                    <div id="card-errors" class="card-errors" role="alert"></div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="billing-name">Billing Name</label>
+                                        <input type="text" id="billing-name" name="billing-name" required placeholder="John Doe">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="billing-country">Country</label>
+                                        <select id="billing-country" name="billing-country" required>
+                                            <option value="">Select Country</option>
+                                            <option value="US">United States</option>
+                                            <option value="CA">Canada</option>
+                                            <option value="GB">United Kingdom</option>
+                                            <option value="AU">Australia</option>
+                                            <option value="DE">Germany</option>
+                                            <option value="FR">France</option>
+                                            <option value="ES">Spain</option>
+                                            <option value="IT">Italy</option>
+                                            <option value="NL">Netherlands</option>
+                                            <option value="SE">Sweden</option>
+                                            <option value="NO">Norway</option>
+                                            <option value="DK">Denmark</option>
+                                            <option value="FI">Finland</option>
+                                            <option value="JP">Japan</option>
+                                            <option value="KR">South Korea</option>
+                                            <option value="SG">Singapore</option>
+                                            <option value="HK">Hong Kong</option>
+                                            <option value="IN">India</option>
+                                            <option value="BR">Brazil</option>
+                                            <option value="MX">Mexico</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-checkbox">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="terms" name="terms" required>
+                                        I agree to the <a href="#" class="terms-link">Terms of Service</a> and <a href="#" class="privacy-link">Privacy Policy</a>
+                                    </label>
+                                </div>
+
+                                <button type="submit" id="submit-payment" class="btn btn--primary btn--xl payment-btn" disabled>
+                                    <i class="fas fa-lock"></i>
+                                    <span class="btn-text">Complete Purchase</span>
+                                    <span class="btn-loading" style="display: none;">
+                                        <i class="fas fa-spinner fa-spin"></i>
+                                        Processing...
+                                    </span>
+                                </button>
+
+                                <div class="payment-security">
+                                    <div class="security-badges">
+                                        <div class="security-badge">
+                                            <i class="fab fa-cc-visa"></i>
+                                        </div>
+                                        <div class="security-badge">
+                                            <i class="fab fa-cc-mastercard"></i>
+                                        </div>
+                                        <div class="security-badge">
+                                            <i class="fab fa-cc-amex"></i>
+                                        </div>
+                                        <div class="security-badge">
+                                            <i class="fas fa-shield-alt"></i>
+                                        </div>
+                                    </div>
+                                    <p class="security-text">Your payment information is secure and encrypted</p>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="buy-faq">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Frequently Asked Questions</h2>
+                    <p class="section-subtitle">Everything you need to know about purchasing Karma Coins</p>
+                </div>
+
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h3 class="faq-question">
+                            <i class="fas fa-coins"></i>
+                            How do Karma Coins work?
+                        </h3>
+                        <p class="faq-answer">
+                            Karma Coins are our virtual currency used to tip listeners and access premium features. Each coin represents a small monetary value that goes directly to supporting our compassionate community.
+                        </p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3 class="faq-question">
+                            <i class="fas fa-clock"></i>
+                            Do Karma Coins expire?
+                        </h3>
+                        <p class="faq-answer">
+                            No, your Karma Coins never expire. Once purchased, they remain in your account indefinitely until you choose to use them.
+                        </p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3 class="faq-question">
+                            <i class="fas fa-undo-alt"></i>
+                            Can I get a refund?
+                        </h3>
+                        <p class="faq-answer">
+                            We offer a 30-day money-back guarantee on unused Karma Coins. If you're not satisfied, contact our support team for a full refund.
+                        </p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3 class="faq-question">
+                            <i class="fas fa-shield-alt"></i>
+                            Is my payment secure?
+                        </h3>
+                        <p class="faq-answer">
+                            Absolutely. We use Stripe for payment processing, which employs bank-level security and encryption. Your payment information is never stored on our servers.
+                        </p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3 class="faq-question">
+                            <i class="fas fa-heart"></i>
+                            How do I tip a listener?
+                        </h3>
+                        <p class="faq-answer">
+                            After a conversation, you'll have the option to tip your listener using your Karma Coins. Simply select the amount you'd like to give as appreciation for their time and support.
+                        </p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3 class="faq-question">
+                            <i class="fas fa-star"></i>
+                            What are the premium features?
+                        </h3>
+                        <p class="faq-answer">
+                            Premium features include priority matching with listeners, extended conversation time, access to specialized listeners, and detailed conversation insights.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta">
+            <div class="container">
+                <div class="cta-card">
+                    <h2 class="cta-title">Need Help?</h2>
+                    <p class="cta-subtitle">Our support team is here to assist you with any questions about purchasing Karma Coins</p>
+                    <div class="cta-buttons">
+                        <a href="mailto:support@listeningmonk.com" class="btn btn--secondary btn--lg">
+                            <i class="fas fa-envelope"></i>
+                            Contact Support
+                        </a>
+                        <a href="#" class="btn btn--primary btn--lg">
+                            <i class="fas fa-comments"></i>
+                            Live Chat
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-heart"></i>
+                        <div class="logo-content">
+                            <div class="logo-text">Listening Monk</div>
+                            <div class="logo-subtitle">Compassionate Connection</div>
+                        </div>
+                    </div>
+                    <p class="footer-description">
+                        Connecting hearts through compassionate listening. Find emotional support and understanding in our caring community.
+                    </p>
+                </div>
+
+                <div class="footer-section">
+                    <h3 class="footer-title">Platform</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html" class="footer-link">Home</a></li>
+                        <li><a href="listeners.html" class="footer-link">Find Listeners</a></li>
+                        <li><a href="buy-coin.html" class="footer-link">Buy Coins</a></li>
+                        <li><a href="auth.html" class="footer-link">Join Community</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3 class="footer-title">Support</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Help Center</a></li>
+                        <li><a href="#" class="footer-link">Privacy Policy</a></li>
+                        <li><a href="#" class="footer-link">Terms of Service</a></li>
+                        <li><a href="#" class="footer-link">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3 class="footer-title">Connect</h3>
+                    <div class="footer-social">
+                        <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="footer-copyright">© 2024 Listening Monk. All rights reserved.</p>
+                <div class="footer-badges">
+                    <span class="badge">Secure</span>
+                    <span class="badge">Encrypted</span>
+                    <span class="badge">Private</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script src="buy-coin.js"></script>
+</body>
+</html>

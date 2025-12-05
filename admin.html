@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard – Listening Monk</title>
+  <meta name="description" content="Admin dashboard for managing monks and schedules on Listening Monk.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="admin-styles.css">
+  <script src="script.js" defer></script>
+  <script src="admin.js" defer></script>
+</head>
+<body>
+  <!-- Skip Link -->
+  <a href="#adminContainer" class="skip-link">Skip to admin dashboard</a>
+
+  <!-- Theme Toggle -->
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle between light and dark theme">
+    <div class="theme-toggle-track">
+      <div class="theme-toggle-thumb">
+        <span class="sun-icon">☀️</span>
+        <span class="moon-icon">🌙</span>
+      </div>
+    </div>
+  </button>
+
+  <!-- Admin Container -->
+  <div class="admin-container" id="adminContainer">
+    <!-- Admin Header -->
+    <header class="admin-header">
+      <div class="admin-header-content">
+        <div class="logo">
+          <div class="logo-icon">🧘‍♂️</div>
+          <div class="logo-content">
+            <span class="logo-text">Listening Monk</span>
+            <span class="logo-subtitle">Admin Dashboard</span>
+          </div>
+        </div>
+        <div class="admin-header-actions">
+          <div class="admin-user">
+            <span class="admin-welcome">Welcome, Admin</span>
+            <div class="admin-avatar">👨‍💼</div>
+          </div>
+          <button class="btn btn--secondary btn--sm" id="logoutBtn">
+            <span>🚪</span>
+            <span>Logout</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Admin Main Content -->
+    <div class="admin-main">
+      <!-- Sidebar Navigation -->
+      <aside class="admin-sidebar">
+        <nav class="admin-nav">
+          <ul class="admin-nav-list">
+            <li>
+              <button class="admin-nav-item active" data-tab="dashboard">
+                <span class="nav-icon">📊</span>
+                <span>Dashboard</span>
+              </button>
+            </li>
+            <li>
+              <button class="admin-nav-item" data-tab="monks">
+                <span class="nav-icon">🧘‍♂️</span>
+                <span>Manage Monks</span>
+              </button>
+            </li>
+            <li>
+              <button class="admin-nav-item" data-tab="schedules">
+                <span class="nav-icon">📅</span>
+                <span>Schedules</span>
+              </button>
+            </li>
+            <li>
+              <button class="admin-nav-item" data-tab="analytics">
+                <span class="nav-icon">📈</span>
+                <span>Analytics</span>
+              </button>
+            </li>
+            <li>
+              <button class="admin-nav-item" data-tab="settings">
+                <span class="nav-icon">⚙️</span>
+                <span>Settings</span>
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      <!-- Main Content Area -->
+      <main class="admin-content">
+        <!-- Dashboard Tab -->
+        <div class="admin-tab active" id="dashboardTab">
+          <div class="admin-section-header">
+            <h1>Dashboard Overview</h1>
+            <p>Monitor your platform's activity and performance</p>
+          </div>
+          
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-icon">🧘‍♂️</div>
+              <div class="stat-content">
+                <div class="stat-number" id="totalMonks">6</div>
+                <div class="stat-label">Active Monks</div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">💬</div>
+              <div class="stat-content">
+                <div class="stat-number">1,247</div>
+                <div class="stat-label">Active Conversations</div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">📞</div>
+              <div class="stat-content">
+                <div class="stat-number">523</div>
+                <div class="stat-label">Voice Calls Today</div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">⭐</div>
+              <div class="stat-content">
+                <div class="stat-number">4.8</div>
+                <div class="stat-label">Average Rating</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="dashboard-charts">
+            <div class="chart-card">
+              <h3>Activity Overview</h3>
+              <div class="chart-placeholder">
+                <div class="chart-bar" style="height: 60%;">
+                  <span class="bar-label">Mon</span>
+                </div>
+                <div class="chart-bar" style="height: 80%;">
+                  <span class="bar-label">Tue</span>
+                </div>
+                <div class="chart-bar" style="height: 45%;">
+                  <span class="bar-label">Wed</span>
+                </div>
+                <div class="chart-bar" style="height: 90%;">
+                  <span class="bar-label">Thu</span>
+                </div>
+                <div class="chart-bar" style="height: 70%;">
+                  <span class="bar-label">Fri</span>
+                </div>
+                <div class="chart-bar" style="height: 55%;">
+                  <span class="bar-label">Sat</span>
+                </div>
+                <div class="chart-bar" style="height: 35%;">
+                  <span class="bar-label">Sun</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Monks Management Tab -->
+        <div class="admin-tab" id="monksTab">
+          <div class="admin-section-header">
+            <h1>Manage Monks</h1>
+            <p>Add, edit, and manage your platform's listeners</p>
+            <button class="btn btn--primary" id="addMonkBtn">
+              <span>➕</span>
+              <span>Add New Monk</span>
+            </button>
+          </div>
+
+          <div class="monks-table-container">
+            <table class="admin-table" id="monksTable">
+              <thead>
+                <tr>
+                  <th>Avatar</th>
+                  <th>Name</th>
+                  <th>Specialty</th>
+                  <th>Status</th>
+                  <th>Rating</th>
+                  <th>Joined</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="monksTableBody">
+                <!-- Monks will be dynamically populated here -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Schedules Tab -->
+        <div class="admin-tab" id="schedulesTab">
+          <div class="admin-section-header">
+            <h1>Monk Schedules</h1>
+            <p>Manage availability and time slots for all monks</p>
+          </div>
+
+          <div class="schedule-controls">
+            <div class="control-group">
+              <label for="scheduleMonkSelect">Select Monk:</label>
+              <select id="scheduleMonkSelect" class="form-select">
+                <option value="">All Monks</option>
+                <!-- Options will be populated dynamically -->
+              </select>
+            </div>
+            <div class="control-group">
+              <label for="scheduleDate">Date:</label>
+              <input type="date" id="scheduleDate" class="form-input">
+            </div>
+            <button class="btn btn--primary" id="addScheduleBtn">
+              <span>➕</span>
+              <span>Add Schedule</span>
+            </button>
+          </div>
+
+          <div class="schedule-grid" id="scheduleGrid">
+            <!-- Schedule will be populated here -->
+          </div>
+        </div>
+
+        <!-- Analytics Tab -->
+        <div class="admin-tab" id="analyticsTab">
+          <div class="admin-section-header">
+            <h1>Analytics & Reports</h1>
+            <p>Detailed insights into platform usage and monk performance</p>
+          </div>
+
+          <div class="analytics-grid">
+            <div class="analytics-card">
+              <h3>Usage Statistics</h3>
+              <div class="analytics-content">
+                <div class="metric">
+                  <span class="metric-label">Total Sessions:</span>
+                  <span class="metric-value">15,324</span>
+                </div>
+                <div class="metric">
+                  <span class="metric-label">Average Session Duration:</span>
+                  <span class="metric-value">23 min</span>
+                </div>
+                <div class="metric">
+                  <span class="metric-label">Return Users:</span>
+                  <span class="metric-value">68%</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="analytics-card">
+              <h3>Monk Performance</h3>
+              <div class="analytics-content">
+                <div class="performance-list">
+                  <div class="performance-item">
+                    <span class="monk-name">Monk Tenzin</span>
+                    <span class="performance-score">98%</span>
+                  </div>
+                  <div class="performance-item">
+                    <span class="monk-name">Sister Maya</span>
+                    <span class="performance-score">95%</span>
+                  </div>
+                  <div class="performance-item">
+                    <span class="monk-name">Monk Dharma</span>
+                    <span class="performance-score">92%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Settings Tab -->
+        <div class="admin-tab" id="settingsTab">
+          <div class="admin-section-header">
+            <h1>System Settings</h1>
+            <p>Configure platform settings and preferences</p>
+          </div>
+
+          <div class="settings-sections">
+            <div class="settings-card">
+              <h3>Platform Settings</h3>
+              <div class="setting-item">
+                <label class="setting-label">
+                  <input type="checkbox" id="enableRegistration" checked>
+                  <span>Allow New User Registration</span>
+                </label>
+              </div>
+              <div class="setting-item">
+                <label class="setting-label">
+                  <input type="checkbox" id="enableVoiceCalls" checked>
+                  <span>Enable Voice Calls</span>
+                </label>
+              </div>
+              <div class="setting-item">
+                <label class="setting-label">
+                  <input type="checkbox" id="enableNotifications" checked>
+                  <span>Push Notifications</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="settings-card">
+              <h3>Security Settings</h3>
+              <div class="setting-item">
+                <label for="sessionTimeout">Session Timeout (minutes):</label>
+                <input type="number" id="sessionTimeout" value="60" min="15" max="480" class="form-input">
+              </div>
+              <div class="setting-item">
+                <label for="maxConcurrentUsers">Max Concurrent Users:</label>
+                <input type="number" id="maxConcurrentUsers" value="1000" min="100" class="form-input">
+              </div>
+            </div>
+          </div>
+
+          <div class="settings-actions">
+            <button class="btn btn--primary" id="saveSettingsBtn">Save Settings</button>
+            <button class="btn btn--secondary" id="resetSettingsBtn">Reset to Defaults</button>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Add/Edit Monk Modal -->
+  <div class="modal" id="monkModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="monkModalTitle">Add New Monk</h2>
+        <button class="modal-close" id="closeMonkModal">×</button>
+      </div>
+      <form id="monkForm" class="modal-form">
+        <div class="form-group">
+          <label for="monkName">Name:</label>
+          <input type="text" id="monkName" required class="form-input">
+        </div>
+        <div class="form-group">
+          <label for="monkAvatar">Avatar:</label>
+          <select id="monkAvatar" class="form-select">
+            <option value="🧘‍♂️">🧘‍♂️ Male Monk</option>
+            <option value="🧘‍♀️">🧘‍♀️ Female Monk</option>
+            <option value="🧙‍♂️">🧙‍♂️ Wise Man</option>
+            <option value="🧙‍♀️">🧙‍♀️ Wise Woman</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="monkSpecialty">Specialty:</label>
+          <input type="text" id="monkSpecialty" required class="form-input" placeholder="e.g., Anxiety & Stress Relief">
+        </div>
+        <div class="form-group">
+          <label for="monkStatus">Status:</label>
+          <select id="monkStatus" class="form-select">
+            <option value="online">Online</option>
+            <option value="away">Away</option>
+            <option value="busy">Busy</option>
+            <option value="offline">Offline</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="monkBio">Bio:</label>
+          <textarea id="monkBio" class="form-textarea" rows="3" placeholder="Brief description of the monk's expertise..."></textarea>
+        </div>
+        <div class="modal-actions">
+          <button type="submit" class="btn btn--primary">Save Monk</button>
+          <button type="button" class="btn btn--secondary" id="cancelMonkForm">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Schedule Modal -->
+  <div class="modal" id="scheduleModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Add Schedule</h2>
+        <button class="modal-close" id="closeScheduleModal">×</button>
+      </div>
+      <form id="scheduleForm" class="modal-form">
+        <div class="form-group">
+          <label for="scheduleMonk">Monk:</label>
+          <select id="scheduleMonk" required class="form-select">
+            <!-- Options populated dynamically -->
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="scheduleStartTime">Start Time:</label>
+          <input type="time" id="scheduleStartTime" required class="form-input">
+        </div>
+        <div class="form-group">
+          <label for="scheduleEndTime">End Time:</label>
+          <input type="time" id="scheduleEndTime" required class="form-input">
+        </div>
+        <div class="form-group">
+          <label for="scheduleRepeat">Repeat:</label>
+          <select id="scheduleRepeat" class="form-select">
+            <option value="none">No Repeat</option>
+            <option value="daily">Daily</option>
+            <option value="weekly">Weekly</option>
+          </select>
+        </div>
+        <div class="modal-actions">
+          <button type="submit" class="btn btn--primary">Add Schedule</button>
+          <button type="button" class="btn btn--secondary" id="cancelScheduleForm">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Notification Toast -->
+  <div class="notification-toast" id="notificationToast">
+    <div class="toast-content">
+      <span class="toast-icon">ℹ️</span>
+      <span class="toast-message"></span>
+    </div>
+  </div>
+
+  <!-- Confirmation Modal -->
+  <div class="modal" id="confirmModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Confirm Action</h2>
+        <button class="modal-close" id="closeConfirmModal">×</button>
+      </div>
+      <div class="modal-body">
+        <p id="confirmMessage">Are you sure you want to perform this action?</p>
+      </div>
+      <div class="modal-actions">
+        <button class="btn btn--primary" id="confirmYes">Yes</button>
+        <button class="btn btn--secondary" id="confirmNo">No</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

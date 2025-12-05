@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us – Listening Monk</title>
+  <meta name="description" content="Learn about Listening Monk's mission to provide 24/7 anonymous emotional support with trained listeners.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <!-- Skip Link -->
+  <a href="#aboutContainer" class="skip-link">Skip to content</a>
+
+  <!-- Theme Toggle -->
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle between light and dark theme">
+    <div class="theme-toggle-track">
+      <div class="theme-toggle-thumb">
+        <span class="sun-icon">☀️</span>
+        <span class="moon-icon">🌙</span>
+      </div>
+    </div>
+  </button>
+
+  <!-- Main App Container -->
+  <div class="app-container" id="appContainer" style="display: none;">
+    <!-- About Page -->
+    <div class="page about-page active" id="aboutPage">
+      <header class="header" id="header">
+        <div class="container">
+          <div class="header-content">
+            <div class="logo">
+              <div class="logo-icon">🧘‍♂️</div>
+              <div class="logo-content">
+                <span class="logo-text">Listening Monk</span>
+                <span class="logo-subtitle">Your safe space</span>
+              </div>
+            </div>
+            <nav class="nav" id="nav">
+              <ul class="nav-list">
+                <li><a href="index.html" class="nav-link" data-page="landing">Home</a></li>
+                <li><a href="about.html" class="nav-link" data-page="about" aria-current="page">About</a></li>
+                <li><a href="login.html" class="nav-link" data-page="auth">Login</a></li>
+                <li><a href="buy-coin.html" class="btn btn--primary" data-page="buy-coin">Buy Coins</a></li>
+              </ul>
+              <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+              </button>
+            </nav>
+          </div>
+        </div>
+      </header>
+
+      <section class="about-section" id="about">
+        <div class="container">
+          <div class="section-header animate-header">
+            <h1 class="section-title">About Listening Monk</h1>
+            <p class="section-subtitle">Creating safe spaces for compassionate support, one conversation at a time.</p>
+          </div>
+          
+          <div class="about-content">
+            <div class="about-mission animate-card">
+              <h2>Our Mission</h2>
+              <p>At Listening Monk, we believe everyone deserves to be heard. Our platform connects individuals seeking emotional support with trained, compassionate listeners in a completely anonymous and judgment-free environment.</p>
+            </div>
+
+            <div class="values-grid">
+              <div class="value-card animate-card">
+                <div class="value-icon">🔒</div>
+                <h3 class="value-title">Privacy First</h3>
+                <p class="value-description">Your conversations are completely anonymous. We never collect personal information or store chat histories.</p>
+              </div>
+              <div class="value-card animate-card">
+                <div class="value-icon">💝</div>
+                <h3 class="value-title">Trained Listeners</h3>
+                <p class="value-description">Our monks undergo extensive training in active listening, empathy, and crisis support techniques.</p>
+              </div>
+              <div class="value-card animate-card">
+                <div class="value-icon">🌍</div>
+                <h3 class="value-title">Global Community</h3>
+                <p class="value-description">Available 24/7 across time zones, connecting people from all walks of life with compassionate support.</p>
+              </div>
+            </div>
+
+            <div class="about-story animate-card">
+              <h2>Our Story</h2>
+              <p>Founded on the principle that human connection and empathy can heal, Listening Monk was created to bridge the gap between those who need support and those willing to provide it. We've facilitated over 1 million meaningful conversations and continue to grow our community of listeners and seekers.</p>
+              <p>Every conversation on our platform is an opportunity for healing, growth, and human connection. Whether you're facing a difficult day, processing major life changes, or simply need someone to listen, our monks are here for you.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="footer-content">
+            <div class="footer-section">
+              <div class="footer-logo">
+                <div class="logo-icon">🧘‍♂️</div>
+                <span class="logo-text">Listening Monk</span>
+              </div>
+              <p class="footer-description">Your safe space for anonymous, compassionate support, available 24/7.</p>
+              <div class="newsletter">
+                <h3 class="footer-title">Stay Connected</h3>
+                <div class="newsletter-form">
+                  <input type="email" placeholder="Enter your email" aria-label="Email for newsletter">
+                  <button class="btn btn--primary" type="button">Subscribe</button>
+                </div>
+              </div>
+            </div>
+            <div class="footer-section">
+              <h3 class="footer-title">Quick Links</h3>
+              <ul class="footer-links">
+                <li><a href="about.html" class="footer-link" data-page="about">About Us</a></li>
+                <li><a href="index.html#features" class="footer-link" data-section="features">Features</a></li>
+                <li><a href="index.html#pricing" class="footer-link" data-section="pricing">Pricing</a></li>
+                <li><a href="login.html" class="footer-link" data-page="auth">Login</a></li>
+              </ul>
+            </div>
+            <div class="footer-section">
+              <h3 class="footer-title">Support</h3>
+              <ul class="footer-links">
+                <li><a href="#" class="footer-link">FAQ</a></li>
+                <li><a href="#" class="footer-link">Contact Us</a></li>
+                <li><a href="#" class="footer-link">Privacy Policy</a></li>
+                <li><a href="#" class="footer-link">Terms of Service</a></li>
+              </ul>
+            </div>
+            <div class="footer-section">
+              <h3 class="footer-title">Follow Us</h3>
+              <div class="footer-social">
+                <a href="#" class="social-link" aria-label="Twitter"><span class="social-icon">𝕏</span></a>
+                <a href="#" class="social-link" aria-label="Instagram"><span class="social-icon">📷</span></a>
+                <a href="#" class="social-link" aria-label="LinkedIn"><span class="social-icon">💼</span></a>
+              </div>
+            </div>
+          </div>
+          <div class="footer-bottom">
+            <p class="footer-copyright">© 2025 Listening Monk. All rights reserved.</p>
+            <div class="footer-badges">
+              <span class="badge">Secure</span>
+              <span class="badge">Trusted</span>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>

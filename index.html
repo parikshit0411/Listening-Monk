@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Listening Monk – Your Safe Space for Support</title>
+  <meta name="description" content="24/7 anonymous emotional support via chat or voice. Connect with trained listeners on Listening Monk.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <!-- Skip Link -->
+  <a href="#appContainer" class="skip-link">Skip to content</a>
+
+  <!-- Loading Screen -->
+  <div class="loading-screen" id="loadingScreen">
+    <div class="loading-content">
+      <div class="loading-logo">
+        <div class="logo-icon">🧘‍♂️</div>
+        <div class="logo-text">Listening Monk</div>
+      </div>
+      <div class="loading-progress">
+        <div class="progress-bar">
+          <div class="progress-fill"></div>
+        </div>
+        <div class="progress-text">Creating your safe space...</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Theme Toggle -->
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle between light and dark theme">
+    <div class="theme-toggle-track">
+      <div class="theme-toggle-thumb">
+        <span class="sun-icon">☀️</span>
+        <span class="moon-icon">🌙</span>
+      </div>
+    </div>
+  </button>
+
+  <!-- Main App Container -->
+  <div class="app-container" id="appContainer" style="display: none;">
+    <!-- Landing Page -->
+    <div class="page landing-page active" id="landingPage">
+      <header class="header" id="header">
+        <div class="container">
+          <div class="header-content">
+            <div class="logo">
+              <div class="logo-icon">🧘‍♂️</div>
+              <div class="logo-content">
+                <span class="logo-text">Listening Monk</span>
+                <span class="logo-subtitle">Your safe space</span>
+              </div>
+            </div>
+            <nav class="nav" id="nav">
+              <ul class="nav-list">
+                <li><a href="#hero" class="nav-link" data-section="hero" aria-current="page">Home</a></li>
+                <li><a href="about.html" class="nav-link" data-page="about">About</a></li>
+                <li><a href="login.html" class="nav-link" data-page="auth">Login</a></li>
+                <li><a href="buy-coin.html" class="btn btn--primary btn--lg" onclick="window.location.href='buy-coin.html'">Buy Now</a></li>
+              </ul>
+              <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+              </button>
+            </nav>
+          </div>
+        </div>
+      </header>
+
+      <section class="hero" id="hero">
+        <div class="hero-background">
+          <div class="hero-gradient"></div>
+          <svg class="hero-wave" viewBox="0 0 1440 320" preserveAspectRatio="none">
+            <path fill="#ddd6fe" fill-opacity="0.7" d="M0,192L48,176C96,160,192,128,288,149.3C384,171,480,245,576,245.3C672,245,768,171,864,149.3C960,128,1056,160,1152,176C1248,192,1344,192,1392,192L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+          </svg>
+        </div>
+        <div class="container">
+          <div class="hero-content">
+            <div class="hero-text">
+              <div class="hero-badge animate-badge">
+                <span>🌟</span>
+                <span>Trusted by 50,000+ users</span>
+              </div>
+              <h1 class="hero-title">
+                <span class="hero-title-line">Find Peace,</span>
+                <span class="hero-title-line">Someone Listens.</span>
+              </h1>
+              <p class="hero-subtitle">Connect anonymously with trained listeners for compassionate support, available 24/7 via chat or voice.</p>
+              <div class="hero-buttons">
+                <button class="btn btn--primary btn--lg btn--glow" onclick="window.location.href='login.html'" aria-label="Get started with support">
+                  <span>Start Now</span>
+                  <div class="btn-icon">→</div>
+                </button>
+                <button class="btn btn--secondary btn--lg" data-page="become-listener" aria-label="Apply to become a listener">
+                  <span>Become a Listener</span>
+                  <div class="btn-icon">💝</div>
+                </button>
+              </div>
+              <div class="hero-features">
+                <div class="feature-tag"><div class="feature-icon">🔒</div><span>100% Anonymous</span></div>
+                <div class="feature-tag"><div class="feature-icon">🕒</div><span>24/7 Available</span></div>
+                <div class="feature-tag"><div class="feature-icon">🎓</div><span>Trained Listeners</span></div>
+              </div>
+            </div>
+            <div class="hero-visual">
+              <div class="chat-mockup floating-card">
+                <div class="chat-header">
+                  <div class="chat-status">
+                    <div class="status-dot"></div>
+                    <span>Sarah Chen - Available</span>
+                  </div>
+                  <div class="chat-actions">
+                    <button class="chat-btn" aria-label="Start voice call">📞</button>
+                    <button class="chat-btn" aria-label="Chat settings">⚙️</button>
+                  </div>
+                </div>
+                <div class="chat-messages">
+                  <div class="message listener">
+                    <div class="message-avatar">SC</div>
+                    <div class="message-bubble">
+                      <div class="message-text">Hi! I'm here to listen. How are you feeling today?</div>
+                      <div class="message-time">Just now</div>
+                    </div>
+                  </div>
+                  <div class="message user">
+                    <div class="message-bubble">
+                      <div class="message-text">Thank you for being here. I really needed someone to talk to.</div>
+                      <div class="message-time">Just now</div>
+                    </div>
+                    <div class="message-avatar">You</div>
+                  </div>
+                  <div class="typing-indicator">
+                    <div class="typing-dots">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </div>
+                    <span class="typing-text">Sarah is typing...</span>
+                  </div>
+                </div>
+                <div class="chat-input">
+                  <input type="text" placeholder="Type your message..." readonly aria-label="Chat input example">
+                  <button class="send-btn" aria-label="Send message">→</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="features" id="features">
+        <div class="container">
+          <div class="section-header animate-header">
+            <h2 class="section-title">Why Listening Monk?</h2>
+            <p class="section-subtitle">Empowering you with support that’s always there.</p>
+          </div>
+          <div class="values-grid">
+            <div class="value-card animate-card">
+              <div class="value-icon">🔒</div>
+              <h3 class="value-title">Complete Anonymity</h3>
+              <p class="value-description">Your privacy is sacred. Connect without sharing personal details.</p>
+            </div>
+            <div class="value-card featured animate-card">
+              <div class="value-badge">Most Popular</div>
+              <div class="value-icon">🕒</div>
+              <h3 class="value-title">24/7 Availability</h3>
+              <p class="value-description">Support whenever you need it, day or night.</p>
+            </div>
+            <div class="value-card animate-card">
+              <div class="value-icon">🎓</div>
+              <h3 class="value-title">Trained Listeners</h3>
+              <p class="value-description">Compassionate, trained listeners ready to support you.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="testimonials" id="testimonials">
+        <div class="container">
+          <div class="section-header animate-header">
+            <h2 class="section-title">Stories of Support</h2>
+            <p class="section-subtitle">Hear from those who found solace with us.</p>
+          </div>
+          <div class="impact-grid">
+            <div class="impact-card animate-card">
+              <div class="impact-icon">😊</div>
+              <div class="impact-number">50,000+</div>
+              <p class="impact-label">Users Supported</p>
+            </div>
+            <div class="impact-card animate-card">
+              <div class="impact-icon">💬</div>
+              <div class="impact-number">1M+</div>
+              <p class="impact-label">Conversations Held</p>
+            </div>
+            <div class="impact-card animate-card">
+              <div class="impact-icon">🌍</div>
+              <div class="impact-number">190+</div>
+              <p class="impact-label">Countries Reached</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="karma-coins" id="karma-coins">
+        <div class="container">
+          <div class="section-header animate-header">
+            <h2 class="section-title">Karma Coins</h2>
+            <p class="section-subtitle">Purchase Karma Coins to connect with our monks. Simple, transparent pricing.</p>
+          </div>
+          <div class="karma-pricing-info animate-card">
+            <div class="pricing-details">
+              <div class="pricing-item">
+                <div class="pricing-icon">💬</div>
+                <div class="pricing-content">
+                  <h4>Chat Sessions</h4>
+                  <p>5 Karma Coins per minute</p>
+                </div>
+              </div>
+              <div class="pricing-item">
+                <div class="pricing-icon">📞</div>
+                <div class="pricing-content">
+                  <h4>Voice Calls</h4>
+                  <p>10 Karma Coins per minute</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="coin-packages">
+            <div class="package-card animate-card">
+              <div class="package-icon">🪙</div>
+              <h3 class="package-title">Starter Pack</h3>
+              <div class="package-coins">100 Coins</div>
+              <div class="package-price">$9.99</div>
+              <p class="package-description">Perfect for trying out our services</p>
+              <button class="btn btn--primary btn--lg" onclick="window.location.href='buy-coin.html'">Buy Now</button>
+            </div>
+            <div class="package-card featured animate-card">
+              <div class="package-badge">Most Popular</div>
+              <div class="package-icon">🪙</div>
+              <h3 class="package-title">Value Pack</h3>
+              <div class="package-coins">500 Coins</div>
+              <div class="package-price">$39.99</div>
+              <div class="package-savings">Save 20%</div>
+              <p class="package-description">Great value for regular users</p>
+              <button class="btn btn--primary btn--lg btn--glow" onclick="window.location.href='buy-coin.html'">Buy Now</button>
+            </div>
+            <div class="package-card animate-card">
+              <div class="package-icon">🪙</div>
+              <h3 class="package-title">Premium Pack</h3>
+              <div class="package-coins">1000 Coins</div>
+              <div class="package-price">$69.99</div>
+              <div class="package-savings">Save 30%</div>
+              <p class="package-description">Best value for frequent users</p>
+              <button class="btn btn--primary btn--lg" onclick="window.location.href='buy-coin.html'">Buy Now</button>
+            </div>
+          </div>
+          <div class="karma-benefits animate-card">
+            <h3>Why Karma Coins?</h3>
+            <div class="benefits-grid">
+              <div class="benefit-item">
+                <div class="benefit-icon">✨</div>
+                <p>Pay only for what you use</p>
+              </div>
+              <div class="benefit-item">
+                <div class="benefit-icon">🔒</div>
+                <p>Secure and anonymous transactions</p>
+              </div>
+              <div class="benefit-item">
+                <div class="benefit-icon">🎁</div>
+                <p>100 free coins for new users</p>
+              </div>
+              <div class="benefit-item">
+                <div class="benefit-icon">⭐</div>
+                <p>No subscription fees</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta" id="cta">
+        <div class="container">
+          <div class="cta-card animate-card">
+            <h2 class="cta-title">Ready to Connect?</h2>
+            <p class="cta-subtitle">Talk to a listener or join our mission to support others.</p>
+            <div class="cta-buttons">
+              <button class="btn btn--primary btn--xl btn--glow" onclick="window.location.href='login.html'">Get Support</button>
+              <button class="btn btn--secondary btn--xl" data-page="become-listener">Become a Listener</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="footer-content">
+            <div class="footer-section">
+              <div class="footer-logo">
+                <div class="logo-icon">🧘‍♂️</div>
+                <span class="logo-text">Listening Monk</span>
+              </div>
+              <p class="footer-description">Your safe space for anonymous, compassionate support, available 24/7.</p>
+              <div class="newsletter">
+                <h3 class="footer-title">Stay Connected</h3>
+                <div class="newsletter-form">
+                  <input type="email" placeholder="Enter your email" aria-label="Email for newsletter">
+                  <button class="btn btn--primary" type="button">Subscribe</button>
+                </div>
+              </div>
+            </div>
+            <div class="footer-section">
+              <h3 class="footer-title">Quick Links</h3>
+              <ul class="footer-links">
+                <li><a href="about.html" class="footer-link" data-page="about">About Us</a></li>
+                <li><a href="#features" class="footer-link" data-section="features">Features</a></li>
+                <li><a href="#karma-coins" class="footer-link" data-section="karma-coins">Karma Coins</a></li>
+                <li><a href="login.html" class="footer-link" data-page="auth">Login</a></li>
+              </ul>
+            </div>
+            <div class="footer-section">
+              <h3 class="footer-title">Support</h3>
+              <ul class="footer-links">
+                <li><a href="#" class="footer-link">FAQ</a></li>
+                <li><a href="#" class="footer-link">Contact Us</a></li>
+                <li><a href="#" class="footer-link">Privacy Policy</a></li>
+                <li><a href="#" class="footer-link">Terms of Service</a></li>
+              </ul>
+            </div>
+            <div class="footer-section">
+              <h3 class="footer-title">Follow Us</h3>
+              <div class="footer-social">
+                <a href="#" class="social-link" aria-label="Twitter"><span class="social-icon">𝕏</span></a>
+                <a href="#" class="social-link" aria-label="Instagram"><span class="social-icon">📷</span></a>
+                <a href="#" class="social-link" aria-label="LinkedIn"><span class="social-icon">💼</span></a>
+              </div>
+            </div>
+          </div>
+          <div class="footer-bottom">
+            <p class="footer-copyright">© 2025 Listening Monk. All rights reserved.</p>
+            <div class="footer-badges">
+              <span class="badge">Secure</span>
+              <span class="badge">Trusted</span>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Placeholder Pages -->
+    <div class="page auth-page" id="authPage">
+      <div class="container">
+        <h2>Login or Sign Up</h2>
+        <p>Redirecting to <a href="login.html">login page</a>.</p>
+      </div>
+    </div>
+    <div class="page become-listener-page" id="becomeListenerPage">
+      <div class="container">
+        <h2>Become a Listener</h2>
+        <p>Placeholder for listener application page.</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
